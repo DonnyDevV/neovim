@@ -1,4 +1,4 @@
-### My Neovim Configuration
+# My Neovim configuration
 ## Colorscheme
 ## Plugins
 ## Keymaps
