@@ -13,7 +13,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-require("lazy").setup({ { import = "jonathan.plugins" } }, {
+require("lazy").setup({ { import = "jonathan.plugins" }, { import = "jonathan.plugins.lsp" } }, {
   install = {
     colorscheme = { "nightfly" },
   },
