@@ -5,4 +5,13 @@ return {
   "christoomey/vim-tmux-navigator", -- tmux & split window navigation
 
   "inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
+
+  -- install without yarn or npm
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
+
 }
