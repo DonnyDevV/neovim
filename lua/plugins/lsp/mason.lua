@@ -30,7 +30,8 @@ return {
         "emmet_ls",
         -- Scripting languages
         "lua_ls",
-        "ruff_lsp",
+        "ruff",
+        "pyright",
         -- Systems programming
         "clangd",
         "rust_analyzer",
@@ -57,18 +58,14 @@ return {
         "prettier",
         "stylua",
         "ruff",
-        "black",
         "clang-format",
         "rustfmt",
         "goimports",
         "google-java-format",
-        "ktlint",
-        "hadolint",
         "shfmt",
         "taplo",
         -- linter
         "eslint_d",
-        "ruff",
         "golangci-lint",
         "checkstyle",
         "ktlint",

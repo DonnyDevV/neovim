@@ -111,10 +111,35 @@ return {
           },
         })
       end,
-      ["ruff_lsp"] = function()
-        lspconfig["ruff_lsp"].setup({
+      -- Python-specific setups
+      ["pyright"] = function()
+        lspconfig["pyright"].setup({
           capabilities = capabilities,
-          -- Add any specific settings for ruff_lsp here
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+              },
+            },
+          },
+          -- Disable formatting and diagnostics since ruff handles it
+          on_attach = function(client, bufnr)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.diagnosticProvider = false
+          end,
+        })
+      end,
+      ["ruff"] = function()
+        lspconfig["ruff"].setup({
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            -- Let ruff handle formatting
+            client.server_capabilities.documentFormattingProvider = true
+            -- Disable hover to avoid overlap with pyright
+            client.server_capabilities.hoverProvider = false
+          end,
         })
       end,
       ["clangd"] = function()
